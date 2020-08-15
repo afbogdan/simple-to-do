@@ -1,10 +1,15 @@
 import React from 'react';
-import './Todo.scss';
+import './todo.scss';
+import Title from '../Title/Title';
+import Subtitle from '../Subtitle/Subtitle';
 
-function Todo() {
+const Todo: React.FC = () => {
   return (
-    <h1>TodoList TypeScript Component</h1>
-  );
-}
+    <div className="todo-list">
+      <Title text="Todo app"/>
+      <Subtitle text="PostgreSQL, Express, React + TypeScript"/>
+    </div>
+  )
+};
 
 export default Todo;
