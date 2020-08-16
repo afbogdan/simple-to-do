@@ -2,14 +2,25 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import Title from './Title';
 
-test('renders title component', () => {
+describe('renders title component', () => {
   const text = 'Hello';
-  const { container, getByText } = render(<Title text={text}/>);
-  expect(getByText(text)).toBeInTheDocument();
+  const tag = 'h5';
+  const type = 'secondary';
+  
+
+  it('should be in the document', () => {
+    const { getByText } = render(<Title text={text} size={tag} type={type}/>);
+    expect(getByText(text)).toBeInTheDocument();
+  });
+
+  it('should have h5 as tagName', () => {
+    const { container } = render(<Title text={text} size={tag} type={type}/>);
+    expect(container.firstElementChild?.tagName.toLowerCase()).toEqual(tag);
+  });
+
+  it('should have \'secondary\' class', () => {
+    const { container } = render(<Title text={text} size={tag} type={type}/>);
+    expect(container.firstElementChild).toHaveClass('secondary');
+  });
 });
 
-test('renders title component /w "title" class', () => {
-    const text = 'Hello';
-    const { container, getByText } = render(<Title text={text}/>);
-    expect(container.firstElementChild).toHaveClass('title');
-});
