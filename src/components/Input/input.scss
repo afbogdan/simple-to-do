@@ -1,0 +1,62 @@
+@import '../../assets/scss/base.scss';
+
+.input-field {
+    position: relative;
+    margin: 24px 0;
+    width: 100%;
+    transition: 0.2s ease-out;
+    padding: 16px 0 0 0;
+
+    &.field-focused {
+        label {
+            top: 0;
+            font-size: 0.7em;
+        }
+    }
+
+    label {
+        font-size: 0.8em;
+        font-weight: 600;
+        color: $white;
+        position: absolute;
+        left: 0;
+        top: 26px;
+        transition: inherit;
+    }
+
+    input {
+        background: none;
+        outline: none;
+        border-width: 0px 0px 2px 0px;
+        border-style: solid;
+        border-color: $white;
+        width: 100%;
+        color: $white;
+        padding: 8px 0; 
+        transition: inherit;
+        position: relative;
+        z-index: 10;
+    
+        &::-webkit-input-placeholder {
+            display: none;
+        }
+    
+        &::-moz-placeholder {
+            display: none;
+        }
+
+        &:-ms-input-placeholder {
+            display: none;
+        }
+    
+    
+        &::-ms-input-placeholder {
+            display: none;
+        }
+    
+        &::placeholder {
+            display: none;
+        }
+    }
+}
+
