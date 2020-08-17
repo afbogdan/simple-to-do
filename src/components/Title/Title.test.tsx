@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import Title from './Title';
 
-describe('renders title component', () => {
+describe('Title component', () => {
   const text = 'Hello';
   const tag = 'h5';
   const type = 'secondary';
