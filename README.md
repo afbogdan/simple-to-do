@@ -8,15 +8,12 @@ You can run it on your local machine if you follow the instructions bellow in re
 2. Create a `todo` database
 3. In the `todo` database, under the public schemas, create a `todos` table.
 
-```
-CREATE TABLE public.todos
-(
-    id integer NOT NULL,
-    name character varying(100) COLLATE pg_catalog."default" NOT NULL,
-    deadline date NOT NULL,
-    CONSTRAINT todos_pkey PRIMARY KEY (id)
-)
-```
+| id            | title         | description   | deadline   | is_done      |
+| --------------|:-------------:|:-------------:|:----------:|:------------:|
+| serial PK NN  | charvar NN    | charvar       | date NN    | boolean NN   |
+
+`PK` = Primary Key;
+`NN` = NOT NULL;
 
 ## Server-side
 
