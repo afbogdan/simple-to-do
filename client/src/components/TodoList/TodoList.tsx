@@ -30,6 +30,15 @@ const TodoList: React.FC = () => {
     add();
   }
 
+  const deleteTask = (id: number) : void => {
+    const deleteTodo = async () => {
+      const { data } = await todoApi.delete(id);
+      setTodolist(data);
+    }
+
+    deleteTodo();
+  }
+
   return (
     <section className="todo-list">
       <header>

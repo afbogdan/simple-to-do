@@ -2,8 +2,7 @@
 
 .input-field {
     position: relative;
-    margin: 24px 0;
-    width: 100%;
+    margin: 24px;
     transition: 0.2s ease-out;
     padding: 16px 0 0 0;
 
@@ -17,7 +16,7 @@
     label {
         font-size: 0.8em;
         font-weight: 600;
-        color: $white;
+        color: $black;
         position: absolute;
         left: 0;
         top: 26px;
@@ -29,9 +28,9 @@
         outline: none;
         border-width: 0px 0px 2px 0px;
         border-style: solid;
-        border-color: $white;
+        border-color: $black;
         width: 100%;
-        color: $white;
+        color: $black;
         padding: 8px 0; 
         transition: inherit;
         position: relative;

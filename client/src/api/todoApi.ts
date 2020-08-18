@@ -11,4 +11,5 @@ export default class TodoApi {
     getAll = () => axios.get(todoURL)
     getOne = (id: number) => axios.get(todoURL + `/${id}`)
     add = (todo: TodoPost) => axios.post(todoURL, todo)
+    delete = (id: number) => axios.delete(todoURL + `/${id}`)
 }

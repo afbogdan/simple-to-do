@@ -41,5 +41,20 @@ router.post('/', async (req, res) => {
     }
 });
 
+router.delete('/:id', async (req, res) => {
+    try {
+        const params = req.params;
+        console.log(params);
+        await db.query('DELETE FROM todos WHERE id = $1', [param])
+        const { rows } = await db.query('SELECT * FROM todos');
+        
+        res.send(rows);
+    } catch (err) {
+        // need to cover cases
+        console.log(error);
+        res.status(500).send('Something went wrong');
+    }
+});
+
 // export our router to be mounted by the parent application
 module.exports = router;
