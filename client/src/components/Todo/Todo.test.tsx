@@ -1,8 +1,8 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import Todo from './Todo';
+import TodoList from './TodoList';
 
 test('Todo component', () => {
-  const { container } = render(<Todo />);
+  const { container } = render(<TodoList />);
   expect(container.firstElementChild).toHaveClass('todo-list');
 });

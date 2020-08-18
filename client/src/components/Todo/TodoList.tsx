@@ -2,24 +2,19 @@ import React, { useState, useEffect } from 'react';
 import './todo.scss';
 import Title from '../Title/Title';
 import Input from '../Input/Input';
+import TodoApi from '../../api/todoApi';
+import { Todo } from '../../interfaces/TodoInterface';
 
-const axios = require('axios');
-const baseURL = 'http://localhost:5000';
+const todoApi = new TodoApi();
 
-interface Todo {
-  id: number,
-  name: string,
-  deadline: Date;
-} 
-
-const Todo: React.FC = () => {
+const TodoList: React.FC = () => {
   const [todolist, setTodolist] = useState<Todo[]>( [] );
-  const listItems = todolist.map((element, i) => <Title key={i} text={element.name} size="h6" type="secondary"/>);
+  const listItems = todolist.map((element, i) => <Title key={i} text={element.title} size="h6" type="secondary"/>);
 
   // fetch todos
   useEffect( () => {
     const getTodos = async () => {
-      const todos = await axios.get(baseURL + '/todo');
+      const todos = await todoApi.getAll();
       setTodolist(todos.data);
     }
 
@@ -27,12 +22,12 @@ const Todo: React.FC = () => {
   }, [])
 
   const addTask = (value: string) : void => {
-    // needs to be integrated with the back-end
-    setTodolist(todolist.concat({
-      id: todolist.length + 1, 
-      name: value, 
-      deadline: new Date()
-    }));
+    const add = async () => {
+      const { data } = await todoApi.add({deadline: new Date(), title: value });
+      setTodolist(data)
+    }
+
+    add();
   }
 
   return (
@@ -50,4 +45,4 @@ const Todo: React.FC = () => {
   )
 };
 
-export default Todo;
+export default TodoList;
