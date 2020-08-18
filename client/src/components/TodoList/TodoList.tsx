@@ -4,12 +4,22 @@ import Title from '../Title/Title';
 import Input from '../Input/Input';
 import TodoApi from '../../api/todoApi';
 import { Todo } from '../../interfaces/TodoInterface';
+import Task from '../Task/Task';
 
 const todoApi = new TodoApi();
 
 const TodoList: React.FC = () => {
   const [todolist, setTodolist] = useState<Todo[]>( [] );
-  const listItems = todolist.map((element, i) => <Title key={i} text={element.title} size="h6" type="secondary"/>);
+  const listItems = todolist.map((t, i) => 
+    <Task 
+      key={i}
+      id={t.id}
+      isDone={t.isDone}
+      title={t.title}
+      description={t.description} 
+      deadline={t.deadline}
+    />
+  )
 
   // fetch todos
   useEffect( () => {
