@@ -11,7 +11,7 @@
 
     header {
         background: $body;
-        padding: 7%;
+        padding: 5% 7%;
 
         .primary {
             margin: 0;
@@ -36,5 +36,5 @@
 }
 
 @media screen and (min-width: 1200px) {
-    .todo-list { width: 40vw; }
+    .todo-list { width: 30vw; }
 }

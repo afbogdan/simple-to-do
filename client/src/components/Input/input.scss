@@ -2,13 +2,13 @@
 
 .input-field {
     position: relative;
-    padding: 24px;
+    padding: 32px 7%;
     transition: 0.2s ease-out;
     background: $pink;
 
     &.field-focused {
         label {
-            top: 16px;
+            top: 20%;
             font-size: 0.7em;
             color: $purple;
         }
@@ -23,8 +23,8 @@
         font-weight: 600;
         color: $black;
         position: absolute;
-        left: 24px;
-        top: 40px;
+        left: 7%;
+        top: 45%;
         transition: inherit;
     }
 
