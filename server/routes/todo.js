@@ -8,6 +8,7 @@ router.get('/', async (req, res) => {
         const { rows } = await db.query('SELECT * FROM todos');
         res.send(rows);
     } catch (error) {
+        // need to cover cases
         console.log(error);
         res.status(500).send('Something went wrong');
     }
@@ -43,9 +44,8 @@ router.post('/', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
     try {
-        const params = req.params;
-        console.log(params);
-        await db.query('DELETE FROM todos WHERE id = $1', [param])
+        const id = req.params.id;
+        await db.query('DELETE FROM todos WHERE id = $1', [id])
         const { rows } = await db.query('SELECT * FROM todos');
         
         res.send(rows);

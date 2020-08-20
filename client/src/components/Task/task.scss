@@ -1,3 +1,29 @@
+@import "../../assets/scss/base.scss";
+
 .task-container {
-    margin: 12px 24px;
+    margin: 4px 24px;
+    padding: 20px 0;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+    "checkbox title"
+    "checkbox deadline";
+    cursor: pointer;
+    border-bottom: 1px solid $lightgray;
+
+    input {
+        grid-area: checkbox
+    }
+
+    .task-title {
+        grid-area: title;
+        font-weight: 600;
+        margin-bottom: 4px;
+    }
+
+    .task-deadline {
+        grid-area: deadline;
+        font-size: 0.8rem;
+    }
 }

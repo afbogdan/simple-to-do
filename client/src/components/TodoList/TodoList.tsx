@@ -9,28 +9,7 @@ import Task from '../Task/Task';
 const todoApi = new TodoApi();
 
 const TodoList: React.FC = () => {
-  const [todolist, setTodolist] = useState<Todo[]>( [] );
-  const listItems = todolist.map((t, i) => 
-    <Task 
-      key={i}
-      id={t.id}
-      isDone={t.isDone}
-      title={t.title}
-      description={t.description} 
-      deadline={t.deadline}
-    />
-  )
-
-  // fetch todos
-  useEffect( () => {
-    const getTodos = async () => {
-      const todos = await todoApi.getAll();
-      setTodolist(todos.data);
-    }
-
-    getTodos()
-  }, [])
-
+  
   const addTask = (value: string) : void => {
     const add = async () => {
       const { data } = await todoApi.add({deadline: new Date(), title: value });
@@ -48,6 +27,25 @@ const TodoList: React.FC = () => {
 
     deleteTodo();
   }
+  
+  const [todolist, setTodolist] = useState<Todo[]>( [] );
+  const listItems = todolist.map((t, i) => 
+    <Task 
+      key={i}
+      data={t}
+      deleteHandler={deleteTask}
+    />
+  )
+
+  // fetch todos
+  useEffect( () => {
+    const getTodos = async () => {
+      const todos = await todoApi.getAll();
+      setTodolist(todos.data);
+    }
+
+    getTodos()
+  }, [])
 
   return (
     <section className="todo-list">

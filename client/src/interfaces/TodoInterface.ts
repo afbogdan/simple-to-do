@@ -3,7 +3,7 @@ export interface Todo {
     title: string,
     description? : string | null,
     isDone: boolean,
-    deadline: Date;
+    deadline: string;
 } 
 
 export interface TodoPost {

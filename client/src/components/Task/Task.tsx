@@ -1,10 +1,23 @@
 import React from 'react'
 import { Todo } from '../../interfaces/TodoInterface';
 import './task.scss';
+import Helper from '../../helpers/global';
 
-const Task: React.FC<Todo> = (props: Todo) => {
+const help = new Helper();
+
+interface Task {
+    data: Todo,
+    stateHandler?: () => void,
+    deleteHandler: (id: number) => void
+}
+
+const Task: React.FC<Task> = ({data, deleteHandler}) => {
     return (
-        <p className="task-container">{props.title}</p>
+        <div className="task-container" onDoubleClick={() => deleteHandler(data.id)}>
+            <input type="checkbox" checked={data.isDone}/>
+            <p className="task-title">{data.title}</p>
+            <p className="task-deadline">{help.getDateString(data.deadline)}</p>
+        </div>
     )
 }
 
