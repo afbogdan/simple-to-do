@@ -66,8 +66,9 @@ const TodoList: React.FC = () => {
     
       <Input label="What todo?" submitValue={addTask}/>
 
-      {listItems}
-
+      <div className="tasks">
+        {listItems}
+      </div>
     </section>
   )
 };

@@ -26,4 +26,8 @@
         grid-area: deadline;
         font-size: 0.8rem;
     }
+
+    &:last-child {
+        border-bottom: 0;
+    }
 }

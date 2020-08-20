@@ -21,6 +21,11 @@
             color: $white;
         }
     }
+
+    .tasks {
+        height: 71%;
+        overflow-y: auto;
+    }
 }
 
 @media screen and (min-width: 768px) {
