@@ -27,7 +27,7 @@ const TodoList: React.FC = () => {
 
     deleteTodo();
   }
-  
+
   const [todolist, setTodolist] = useState<Todo[]>( [] );
   const listItems = todolist.map((t, i) => 
     <Task 
@@ -51,7 +51,7 @@ const TodoList: React.FC = () => {
     <section className="todo-list">
       <header>
         <Title text="Todo app" size="h1" type="primary"/>
-        <Title text="PostgreSQL, Express, React, TypeScript" size="h6" type="secondary"/>
+        <Title text="PERN /w TypeScript & Jest" size="h6" type="secondary"/>
       </header>
     
       <Input label="What todo?" submitValue={addTask}/>
