@@ -4,17 +4,17 @@
     position: relative;
     padding: 24px;
     transition: 0.2s ease-out;
-    background: $yellowlight;
+    background: $pink;
 
     &.field-focused {
         label {
             top: 16px;
             font-size: 0.7em;
-            color: $darkblue;
+            color: $purple;
         }
 
         input {
-            border-color: $darkblue;
+            border-color: $purple;
         }
     }
 

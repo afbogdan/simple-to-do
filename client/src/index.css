@@ -26,7 +26,7 @@ code {
 #root {
   width: 100%;
   height: 100%;
-  background: linear-gradient(55deg,#fde2ff, #9b94f7);
+  background: #e8e8e8;;
   padding: 8vh 0;
   display: flex;
   justify-content: center;
