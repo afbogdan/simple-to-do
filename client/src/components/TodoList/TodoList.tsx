@@ -3,7 +3,7 @@ import './todolist.scss';
 import Title from '../Title/Title';
 import Input from '../Input/Input';
 import TodoApi from '../../api/todoApi';
-import { Todo } from '../../interfaces/TodoInterface';
+import { Todo, TodoPatch } from '../../interfaces/TodoInterface';
 import Task from '../Task/Task';
 
 const todoApi = new TodoApi();
@@ -28,12 +28,22 @@ const TodoList: React.FC = () => {
     deleteTodo();
   }
 
+  const updateTask = (id: number, payload: TodoPatch) => {
+    const updateTodo = async () => {
+      const { data } = await todoApi.patch(id, payload);
+      setTodolist(data);
+    }
+
+    updateTodo()
+  }
+
   const [todolist, setTodolist] = useState<Todo[]>( [] );
   const listItems = todolist.map((t, i) => 
     <Task 
       key={i}
       data={t}
       deleteHandler={deleteTask}
+      updateHandler={updateTask}
     />
   )
 

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { TodoPost } from '../interfaces/TodoInterface';
+import { TodoPost, TodoPatch } from '../interfaces/TodoInterface';
 
 axios.defaults.headers.post['Content-Type'] = 'application/json-patch+json';
 
@@ -12,4 +12,5 @@ export default class TodoApi {
     getOne = (id: number) => axios.get(todoURL + `/${id}`)
     add = (todo: TodoPost) => axios.post(todoURL, todo)
     delete = (id: number) => axios.delete(todoURL + `/${id}`)
+    patch = (id: number, payload: TodoPatch) => axios.patch(todoURL + `/${id}`, payload);
 }
