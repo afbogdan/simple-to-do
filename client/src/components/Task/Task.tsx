@@ -14,11 +14,23 @@ interface Task {
 
 const Task: React.FC<Task> = ({data, deleteHandler, updateHandler}) => {
     return (
-        <div className="task-container" onDoubleClick={() => deleteHandler(data.id)}>
-            <input type="checkbox" checked={data.is_done} onChange={() => updateHandler(data.id, {is_done: !data.is_done})}/>
-            <p className="task-title">{data.title}</p>
-            <p className="task-deadline">{help.getDateString(data.deadline)}</p>
-        </div>
+        <label 
+            htmlFor={data.id.toString()} 
+            className="task"
+            onDoubleClick={() => deleteHandler(data.id)}>
+
+            <input 
+                checked={data.is_done} 
+                id={data.id.toString()}
+                onChange={() => updateHandler(data.id, {is_done: !data.is_done})} 
+                type="checkbox"
+            />
+            <span className="checkbox circular"></span>
+
+            <span className="title">{data.title}</span>
+            <span className="desc">{data.description}</span>
+            <span className="deadline">{help.getDateString(data.deadline)}</span>
+        </label>
     )
 }
 

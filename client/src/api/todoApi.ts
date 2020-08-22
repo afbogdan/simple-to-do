@@ -9,8 +9,8 @@ const todoURL = baseURL + '/todo';
 
 export default class TodoApi {
     getAll = () => axios.get(todoURL)
-    getOne = (id: number) => axios.get(todoURL + `/${id}`)
+    getOne = (id: number) => axios.get(`${todoURL}/${id}`)
     add = (todo: TodoPost) => axios.post(todoURL, todo)
-    delete = (id: number) => axios.delete(todoURL + `/${id}`)
-    patch = (id: number, payload: TodoPatch) => axios.patch(todoURL + `/${id}`, payload);
+    delete = (id: number) => axios.delete(`${todoURL}/${id}`)
+    patch = (id: number, payload: TodoPatch) => axios.patch(`${todoURL}/${id}`, payload);
 }
